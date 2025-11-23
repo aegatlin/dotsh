@@ -9,10 +9,12 @@ function dzh() {
 ALIASES (aliases.zsh):
   ..          cd ..
   g           git
+  imps        iex -S mix phx.server
   l           ls -alG
   nr          npm run
+  nv          nvim
   v           vim
-  imps        iex -S mix phx.server
+  z           zed
 
 FUNCTIONS (functions.zsh):
   dzh         this help
@@ -21,6 +23,8 @@ FUNCTIONS (functions.zsh):
   cdg         cd ~/w/g
   ports       show listening ports
   myip        show local/public IPs
+  rat         output all git-tracked files with line numbers
+  airat       output all git-tracked files with AI-friendly context header
 EOF
 }
 
@@ -65,4 +69,26 @@ function ports() {
 function myip() {
   echo "Local IP:  $(ipconfig getifaddr en0 2>/dev/null || echo 'Not connected')"
   echo "Public IP: $(curl -s ifconfig.me || echo 'Not connected')"
+}
+
+# Output all git-tracked files with line numbers in XML format
+# Usage: rat
+function rat() {
+  git ls-files | while read file; do
+    echo "<document path=\"$file\">"
+    nl -ba "$file"
+    echo "</document>"
+  done
+}
+
+# Output all git-tracked files with AI-friendly context header
+# Usage: airat
+function airat() {
+  cat << EOF
+The complete codebase is provided below in XML format.
+Answer the following question using ONLY the code provided, do not use any tools.
+Everything you need is in this context.
+
+$(rat)
+EOF
 }
