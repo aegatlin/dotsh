@@ -22,6 +22,7 @@ FUNCTIONS (functions.zsh):
   cdw [dir]   cd ~/w/[dir]
   cdg         cd ~/w/g
   ports       show listening ports
+  portdetails show listening ports with parent process info
   myip        show local/public IPs
   rat         output all git-tracked files with line numbers
   airat       output all git-tracked files with AI-friendly context header
@@ -62,6 +63,19 @@ function cdg() {
 # Usage: ports
 function ports() {
   lsof -iTCP -sTCP:LISTEN -n -P | awk 'NR==1 || /LISTEN/'
+}
+
+# Show detailed port info including parent processes
+# Usage: portdetails
+function portdetails() {
+  echo "Listening ports:"
+  ports
+  echo ""
+  echo "Parent processes:"
+  lsof -iTCP -sTCP:LISTEN -n -P | awk 'NR>1 {print $2}' | sort -u | while read pid; do
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    ps -fp "$pid"
+  done
 }
 
 # Show local and public IP addresses
