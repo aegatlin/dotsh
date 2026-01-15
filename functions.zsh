@@ -24,8 +24,6 @@ FUNCTIONS (functions.zsh):
   ports       show listening ports
   portdetails show listening ports with parent process info
   myip        show local/public IPs
-  rat         output all git-tracked files with line numbers
-  airat       output all git-tracked files with AI-friendly context header
 EOF
 }
 
@@ -85,24 +83,3 @@ function myip() {
   echo "Public IP: $(curl -s ifconfig.me || echo 'Not connected')"
 }
 
-# Output all git-tracked files with line numbers in XML format
-# Usage: rat
-function rat() {
-  git ls-files | while read file; do
-    echo "<document path=\"$file\">"
-    nl -ba "$file"
-    echo "</document>"
-  done
-}
-
-# Output all git-tracked files with AI-friendly context header
-# Usage: airat
-function airat() {
-  cat << EOF
-The complete codebase is provided below in XML format.
-Answer the following question using ONLY the code provided, do not use any tools.
-Everything you need is in this context.
-
-$(rat)
-EOF
-}
