@@ -21,8 +21,6 @@ FUNCTIONS (functions.zsh):
   cdc <dir>   cd ~/.config/<dir>
   cdw [dir]   cd ~/w/[dir]
   cdg         cd ~/w/g
-  ports       show listening ports
-  portdetails show listening ports with parent process info
   myip        show local/public IPs
 EOF
 }
@@ -56,25 +54,6 @@ function cdg() {
 # ============================================================================
 # SYSTEM UTILITIES
 # ============================================================================
-
-# Show what's listening on which ports
-# Usage: ports
-function ports() {
-  lsof -iTCP -sTCP:LISTEN -n -P | awk 'NR==1 || /LISTEN/'
-}
-
-# Show detailed port info including parent processes
-# Usage: portdetails
-function portdetails() {
-  echo "Listening ports:"
-  ports
-  echo ""
-  echo "Parent processes:"
-  lsof -iTCP -sTCP:LISTEN -n -P | awk 'NR>1 {print $2}' | sort -u | while read pid; do
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    ps -fp "$pid"
-  done
-}
 
 # Show local and public IP addresses
 # Usage: myip
