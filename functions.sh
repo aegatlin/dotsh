@@ -3,8 +3,8 @@
 # ============================================================================
 
 # Show available aliases and functions
-# Usage: dzh
-function dzh() {
+# Usage: shh
+function shh() {
   cat <<'EOF'
 ALIASES (aliases.zsh):
   ..          cd ..
@@ -17,7 +17,7 @@ ALIASES (aliases.zsh):
   z           zed
 
 FUNCTIONS (functions.zsh):
-  dzh         this help
+  shh         this help
   cdc <dir>   cd ~/.config/<dir>
   cdw [dir]   cd ~/w/[dir]
   cdg         cd ~/w/g
