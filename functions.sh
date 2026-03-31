@@ -61,4 +61,3 @@ function myip() {
   echo "Local IP:  $(ipconfig getifaddr en0 2>/dev/null || echo 'Not connected')"
   echo "Public IP: $(curl -s ifconfig.me || echo 'Not connected')"
 }
-
