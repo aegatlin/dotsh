@@ -1,10 +1,20 @@
 # dotzsh
 
-Zsh utilities to be added to a `~/.zshrc` file.
+zsh config files
 
-Once installed run `dzh` for dotzsh help.
+## install
+
+this repo is intended to be cloned into `~/.config/zsh`
+
+```sh
+git clone git@github.com:aegatlin/dotzsh.git zsh
+# or
+gh repo clone dotzsh zsh
+```
 
 ## usage
+
+ensure the following is present in `~/.zshrc`
 
 ```sh
 # top of file content
@@ -20,3 +30,5 @@ done
 eval "$(...)"
 export PATH="$PATH:..."
 ```
+
+once installed you should be able to run `dzh` to see DotZshHelp.

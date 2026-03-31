@@ -10,3 +10,4 @@ alias z='zed'
 
 alias nr='npm run'
 alias imps='iex -S mix phx.server'
+alias m='mise'
