@@ -5,18 +5,11 @@
 # Show available aliases and functions
 # Usage: shh
 function shh() {
+  echo "ALIASES (aliases.sh):"
+  sed -n "s/^alias \([^=]*\)='\(.*\)'/  printf '  %-12s%s\\n' '\1' '\2'/p" ~/.config/sh/aliases.sh | sh
   cat <<'EOF'
-ALIASES (aliases.zsh):
-  ..          cd ..
-  g           git
-  imps        iex -S mix phx.server
-  l           ls -alG
-  nr          npm run
-  nv          nvim
-  v           vim
-  z           zed
 
-FUNCTIONS (functions.zsh):
+FUNCTIONS (functions.sh):
   shh         this help
   shs         source shell rc file
   cdc <dir>   cd ~/.config/<dir>
