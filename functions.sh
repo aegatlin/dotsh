@@ -18,11 +18,26 @@ ALIASES (aliases.zsh):
 
 FUNCTIONS (functions.zsh):
   shh         this help
+  shs         source shell rc file
   cdc <dir>   cd ~/.config/<dir>
   cdw [dir]   cd ~/w/[dir]
   cdg         cd ~/w/g
   myip        show local/public IPs
 EOF
+}
+
+# ============================================================================
+# SHELL UTILITIES
+# ============================================================================
+
+# Source the appropriate shell rc file (.zshrc or .bashrc)
+# Usage: shs
+function shs() {
+  if [ -n "$ZSH_VERSION" ]; then
+    source ~/.zshrc
+  elif [ -n "$BASH_VERSION" ]; then
+    source ~/.bashrc
+  fi
 }
 
 # ============================================================================
