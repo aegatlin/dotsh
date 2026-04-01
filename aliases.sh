@@ -13,4 +13,5 @@ alias imps='iex -S mix phx.server'
 alias m='mise'
 
 alias c='claude'
+alias cp='claude -p'
 alias cw='claude -w'
