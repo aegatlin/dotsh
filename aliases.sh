@@ -1,17 +1,22 @@
+# utils
 alias ..='cd ..'
-
-alias g='git'
-
 alias l='ls -alG'
 
+# git
+alias g='git'
+
+# tools
 alias v='vim'
 alias nv='nvim'
 alias z='zed'
+alias m='mise'
+alias sb='supabase'
 
+# langs
 alias nr='npm run'
 alias imps='iex -S mix phx.server'
-alias m='mise'
 
+# ais
 alias c='claude'
 alias cad='claude --allow-dangerously-skip-permissions'
 # this unsets the env var if it exists, meaning it will use subscription by
