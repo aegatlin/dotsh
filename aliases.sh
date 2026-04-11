@@ -11,6 +11,7 @@ alias nv='nvim'
 alias z='zed'
 alias m='mise'
 alias sb='supabase'
+alias sbsa='supabase stop --all'
 
 # langs
 alias nr='npm run'
