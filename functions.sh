@@ -14,8 +14,7 @@ FUNCTIONS (functions.sh):
   shs         source shell rc file
   cdc <dir>   cd ~/.config/<dir>
   cdw [dir]   cd ~/w/[dir]
-  cdg         cd ~/w/g
-  myip        show local/public IPs
+  cdg [dir]   cd ~/w/g/[dir]
 EOF
 }
 
@@ -53,19 +52,13 @@ function cdw() {
   fi
 }
 
-# Quick shortcut to ~/w/g/
-# Usage: cdg
+# Navigate to ~/w/g/ or ~/w/g/<subdir>
+# Usage: cdg (goes to ~/w/g/) or cdg f (goes to ~/w/g/f/)
 function cdg() {
-  cd ~/w/g
+  if [ -z "$1" ]; then
+    cd ~/w/g
+  else
+    cd ~/w/g/"$1"
+  fi
 }
 
-# ============================================================================
-# SYSTEM UTILITIES
-# ============================================================================
-
-# Show local and public IP addresses
-# Usage: myip
-function myip() {
-  echo "Local IP:  $(ipconfig getifaddr en0 2>/dev/null || echo 'Not connected')"
-  echo "Public IP: $(curl -s ifconfig.me || echo 'Not connected')"
-}
