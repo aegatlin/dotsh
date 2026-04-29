@@ -10,6 +10,7 @@ alias v='vim'
 alias nv='nvim'
 alias z='zed'
 alias m='mise'
+alias mr='mise run'
 alias sb='supabase'
 alias sbsa='supabase stop --all'
 
