@@ -6,13 +6,14 @@ alias l='ls -alG'
 alias g='git'
 
 # tools
-alias v='vim'
-alias nv='nvim'
-alias z='zed'
+alias lb='libry'
 alias m='mise'
 alias mr='mise run'
 alias sb='supabase'
 alias sbsa='supabase stop --all'
+alias v='vim'
+alias nv='nvim'
+alias z='zed'
 
 # langs
 alias nr='npm run'
