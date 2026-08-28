@@ -9,11 +9,12 @@ alias g='git'
 alias lb='libry'
 alias m='mise'
 alias mr='mise run'
+alias nv='nvim'
+alias rw='railway'
 alias sb='supabase'
 alias sbsa='supabase stop --all'
 alias sp='sprite'
 alias v='vim'
-alias nv='nvim'
 alias z='zed'
 
 # langs
